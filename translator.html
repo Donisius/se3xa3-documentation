@@ -1,0 +1,544 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>translator module &mdash; Invisible mouse  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Invisible mouse
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">translator module</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Invisible mouse</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>translator module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/translator.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-translator">
+<span id="translator-module"></span><h1>translator module<a class="headerlink" href="#module-translator" title="Permalink to this headline">¶</a></h1>
+<p>This module recieves present and past coordinates of hand landmarks piped from mediapipe
+and tries it to find the best OS action to perform based on the positions and patterns of the
+aforementioned coordinates.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Routine Names</p></th>
+<th class="head"><p>Inputs</p></th>
+<th class="head"><p>Outputs</p></th>
+<th class="head"><p>Exceptions</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>__init__</p></td>
+<td><p>float, float, int</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>translate_landmarks_to_keyboard_action</p></td>
+<td><p>List, List</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>translate_landmarks_to_mouse_action</p></td>
+<td><p>List, List</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>get_3d_distance</p></td>
+<td><p>Dict, Dict</p></td>
+<td><p>float</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>get_hand_coords</p></td>
+<td><p>List</p></td>
+<td><p>Dict</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>is_fist</p></td>
+<td><p>List</p></td>
+<td><p>bool</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Assumptions:</strong></p>
+<ul class="simple">
+<li><p>__init__ is called before any other access routine.</p></li>
+</ul>
+<p><strong>State variables</strong></p>
+<dl class="py attribute">
+<dt id="translator.mp_landmarks">
+<code class="sig-prename descclassname"><span class="pre">translator.</span></code><code class="sig-name descname"><span class="pre">mp_landmarks</span></code><a class="headerlink" href="#translator.mp_landmarks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hand landmarks piped from mediapipe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>NormalizedLandmarkList</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="translator.mp_past_landmarks">
+<code class="sig-prename descclassname"><span class="pre">translator.</span></code><code class="sig-name descname"><span class="pre">mp_past_landmarks</span></code><a class="headerlink" href="#translator.mp_past_landmarks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hand landmarks piped from the previous iteration from mediapipe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>NormalizedLandmarkList</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="translator.coords">
+<code class="sig-prename descclassname"><span class="pre">translator.</span></code><code class="sig-name descname"><span class="pre">coords</span></code><a class="headerlink" href="#translator.coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Landmarks piped from mediapipe which are mapped to an indexable form to be used in translation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>List</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="translator.past_coords">
+<code class="sig-prename descclassname"><span class="pre">translator.</span></code><code class="sig-name descname"><span class="pre">past_coords</span></code><a class="headerlink" href="#translator.past_coords" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">The previous landmarks piped from mediapipe which are mapped to an indexable</div>
+<div class="line">form to be used in translation.</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>List</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="translator.hand_coords">
+<code class="sig-prename descclassname"><span class="pre">translator.</span></code><code class="sig-name descname"><span class="pre">hand_coords</span></code><a class="headerlink" href="#translator.hand_coords" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Landmarks commonly used multiple times. The exact ones being palm coordinates</div>
+<div class="line">and index, middle finger, ring finger, and thumb tip coordinates.</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="translator.past_hand_coords">
+<code class="sig-prename descclassname"><span class="pre">translator.</span></code><code class="sig-name descname"><span class="pre">past_hand_coords</span></code><a class="headerlink" href="#translator.past_hand_coords" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Landmarks from the previous iteration commonly used multiple times.</div>
+<div class="line">The exact ones being palm coordinates and index, middle finger, ring finger, and thumb tip coordinates.</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>State invariants</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">|mp_landmarks.landmark|</span> <span class="pre">=</span> <span class="pre">20</span> <span class="pre">∧</span> <span class="pre">(|mp_past_landmarks.landmark|</span> <span class="pre">=</span> <span class="pre">20</span> <span class="pre">∨</span> <span class="pre">|mp_past_landmarks.landmark|</span> <span class="pre">=</span> <span class="pre">0)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">|coords|</span> <span class="pre">=</span> <span class="pre">20</span> <span class="pre">∧</span> <span class="pre">|past_coords|</span> <span class="pre">=</span> <span class="pre">20</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">∀</span> <span class="pre">(i</span> <span class="pre">ε</span> <span class="pre">0..19</span> <span class="pre">|</span> <span class="pre">0</span> <span class="pre">&lt;=</span> <span class="pre">coords[i].x</span> <span class="pre">≤</span> <span class="pre">1</span> <span class="pre">∧</span> <span class="pre">0</span> <span class="pre">≤</span> <span class="pre">coords[i].x</span> <span class="pre">≤</span> <span class="pre">1</span> <span class="pre">∧</span> <span class="pre">0</span> <span class="pre">≤</span> <span class="pre">coords[i].x</span> <span class="pre">≤</span> <span class="pre">1)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">∀</span> <span class="pre">(i</span> <span class="pre">ε</span> <span class="pre">0..19</span> <span class="pre">|</span> <span class="pre">0</span> <span class="pre">≤</span> <span class="pre">coords[i].y</span> <span class="pre">≤</span> <span class="pre">1</span> <span class="pre">∧</span> <span class="pre">0</span> <span class="pre">≤</span> <span class="pre">coords[i].y</span> <span class="pre">≤</span> <span class="pre">1</span> <span class="pre">∧</span> <span class="pre">0</span> <span class="pre">≤</span> <span class="pre">coords[i].y</span> <span class="pre">≤</span> <span class="pre">1)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">∀</span> <span class="pre">(i</span> <span class="pre">ε</span> <span class="pre">0..19</span> <span class="pre">|</span> <span class="pre">0</span> <span class="pre">≤</span> <span class="pre">past_coords[i].x</span> <span class="pre">≤</span> <span class="pre">1</span> <span class="pre">∧</span> <span class="pre">0</span> <span class="pre">≤</span> <span class="pre">past_coords[i].x</span> <span class="pre">≤</span> <span class="pre">1</span> <span class="pre">∧</span> <span class="pre">0</span> <span class="pre">≤</span> <span class="pre">past_coords[i].x</span> <span class="pre">≤</span> <span class="pre">1)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">∀</span> <span class="pre">(i</span> <span class="pre">ε</span> <span class="pre">0..19</span> <span class="pre">|</span> <span class="pre">0</span> <span class="pre">≤</span> <span class="pre">past_coords[i].y</span> <span class="pre">≤</span> <span class="pre">1</span> <span class="pre">∧</span> <span class="pre">0</span> <span class="pre">≤</span> <span class="pre">past_coords[i].y</span> <span class="pre">≤</span> <span class="pre">1</span> <span class="pre">∧</span> <span class="pre">0</span> <span class="pre">≤</span> <span class="pre">past_coords[i].y</span> <span class="pre">≤</span> <span class="pre">1)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">≤</span> <span class="pre">hand_coords.x</span> <span class="pre">≤</span> <span class="pre">1</span> <span class="pre">∧</span> <span class="pre">0</span> <span class="pre">≤</span> <span class="pre">hand_coords.y</span> <span class="pre">≤</span> <span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">≤</span> <span class="pre">past_hand_coords.x</span> <span class="pre">≤</span> <span class="pre">1</span> <span class="pre">∧</span> <span class="pre">0</span> <span class="pre">≤</span> <span class="pre">past_hand_coords.y</span> <span class="pre">≤</span> <span class="pre">1</span></code></p></li>
+</ul>
+<dl class="py class">
+<dt id="translator.Translator">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">translator.</span></code><code class="sig-name descname"><span class="pre">Translator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distance_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shake_sensitivity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.002</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mouse_sensitivity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#translator.Translator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This is a configurable translator that contains methods which take coordinates from
+mediapipe and translates them to mouse actions and keyboard actions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>distance_threshold</strong> (<em>float</em>) – Distance between finger coordinates to be considered them touching.</p></li>
+<li><p><strong>shake_sensitivity</strong> (<em>float</em>) – <div class="line-block">
+<div class="line">Distance threshold palm must travel in relation to its’ previous position in</div>
+<div class="line">order for it to be considered a movement.</div>
+</div>
+</p></li>
+<li><p><strong>mouse_sensitivity</strong> (<em>int</em>) – <div class="line-block">
+<div class="line">Value that the distance between palm coordinate of past coordinates</div>
+<div class="line">to current coordinates must be greater than to be considered a movement.</div>
+</div>
+</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="translator.Translator.translate_landmarks_to_keyboard_action">
+<code class="sig-name descname"><span class="pre">translate_landmarks_to_keyboard_action</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mp_landmarks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mp_past_landmarks</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#translator.Translator.translate_landmarks_to_keyboard_action" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Takes current and present landmarks piped from mediapipe and attempts to interpret
+the best keyboard action for particular gestures or movements.</p>
+<p>The available translations are as follows:</p>
+</div></blockquote>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 72%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Keyboard action</p></th>
+<th class="head"><p>Gesture</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Space</p></td>
+<td><p>Touch index finger and thumb together and open</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enter</p></td>
+<td><p>Touch middle finger and thumb together and open</p></td>
+</tr>
+<tr class="row-even"><td><p>Backspace</p></td>
+<td><p>Touch ring finger and thumb together and open</p></td>
+</tr>
+<tr class="row-odd"><td><p>Escape</p></td>
+<td><p>Touch pinkie finger and thumb together and open</p></td>
+</tr>
+<tr class="row-even"><td><p>Alt + Tab</p></td>
+<td><p>Make a fist</p></td>
+</tr>
+<tr class="row-odd"><td><p>Navigate Alt + Tab</p></td>
+<td><p>Move left, right down or up while making a fist</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><dl class="simple">
+<dt>Args:</dt><dd><p>mp_landmarks (NormalizedLandmarkList): Hand landmarks piped from mediapipe.
+mp_past_landmarks (NormalizedLandmarkList): Hand landmarks piped from the previous iteration from mediapipe.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="translator.Translator.translate_landmarks_to_mouse_action">
+<code class="sig-name descname"><span class="pre">translate_landmarks_to_mouse_action</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mp_landmarks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mp_past_landmarks</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#translator.Translator.translate_landmarks_to_mouse_action" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Takes current and present landmarks piped from mediapipe and attempts to interpret
+the best mouse action for particular gestures or movements.</p>
+<blockquote>
+<div><p>The available translations are as follows:</p>
+</div></blockquote>
+</div></blockquote>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Mouse action</p></th>
+<th class="head"><p>Gesture</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Left mouse click</p></td>
+<td><p>Touch index finger and thumb together</p></td>
+</tr>
+<tr class="row-odd"><td><p>Scroll</p></td>
+<td><p>Hold middle finger and thumb together and move up and down</p></td>
+</tr>
+<tr class="row-even"><td><p>Move cursor</p></td>
+<td><p>Move hand with an open palm</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lift mouse (no action)</p></td>
+<td><p>Make a fist</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><dl class="simple">
+<dt>Args:</dt><dd><p>mp_landmarks (NormalizedLandmarkList): Hand landmarks piped from mediapipe.
+mp_past_landmarks (NormalizedLandmarkList): Hand landmarks piped from the previous iteration from mediapipe.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="translator.get_3d_distance">
+<code class="sig-prename descclassname"><span class="pre">translator.</span></code><code class="sig-name descname"><span class="pre">get_3d_distance</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coord1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coord2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#translator.get_3d_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates and returns the distance between 2 coordinates in 3 dimensional space.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coord1</strong> (<em>Dict</em>) – First landmark coordinate to be compared.</p></li>
+<li><p><strong>coord2</strong> (<em>Dict</em>) – Second landmark coordinate to be compared.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The distance between coord1 and coord2 in 3 dimensional space.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="translator.get_hand_coords">
+<code class="sig-prename descclassname"><span class="pre">translator.</span></code><code class="sig-name descname"><span class="pre">get_hand_coords</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#translator.get_hand_coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a hand coordinate object from hand landmark coordinates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>coords</strong> (<em>List</em>) – List of all hand landmark coordinates.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><div class="line-block">
+<div class="line">A dictionary containing the coordinate positions of the tips of the thumb, index, middle, ring
+| and pinkie finger and the palm.</div>
+</div>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="translator.is_fist">
+<code class="sig-prename descclassname"><span class="pre">translator.</span></code><code class="sig-name descname"><span class="pre">is_fist</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#translator.is_fist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detects if palm is closed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>coords</strong> (<em>List</em>) – List of all hand landmark coordinates.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><cite>True</cite> if palm is close, <cite>False</cite> otherwise.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="translator.is_shaking">
+<code class="sig-prename descclassname"><span class="pre">translator.</span></code><code class="sig-name descname"><span class="pre">is_shaking</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">palm_coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">past_palm_coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shake_sensitivity</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#translator.is_shaking" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shake detection, checks if changes in palm position from the last iteration is too small.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>palm_coords</strong> (<em>Dict</em>) – Coordinates of palm position.</p></li>
+<li><p><strong>past_palm_position</strong> (<em>Dict</em>) – Coordinates of palm position from the last iteration.</p></li>
+<li><p><strong>shake_sensitivity</strong> (<em>float</em>) – <div class="line-block">
+<div class="line">Distance threshold palm must travel in relation to its’ previous position in</div>
+<div class="line">order for it to be considered a movement.</div>
+</div>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><cite>True</cite> if changes in palm position from last iteration is too small, <cite>False</cite> otherwise.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Donisius Wigie, Michael Ilao Yerin Thevarajah.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

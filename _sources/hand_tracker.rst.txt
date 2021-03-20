@@ -1,0 +1,7 @@
+hand\_tracker module
+====================
+
+.. automodule:: hand_tracker
+   :members:
+   :undoc-members:
+   :show-inheritance:
